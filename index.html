@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Virtual 360°</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+</head>
+<body style="margin: 0; padding: 0;">
+    <div id="panorama" style="width: 100%; height: 100vh;"></div>
+
+    <script>
+        pannellum.viewer('panorama', {
+            default: {
+                firstScene: 'scene1',
+                autoLoad: true,
+                sceneFadeDuration: 1000,
+            },
+            scenes: {
+                scene1: {
+                    panorama: 'https://pannellum.org/images/alma.jpg',
+                    hotSpots: [
+                        {
+                            pitch: 10,
+                            yaw: 100,
+                            type: 'scene',
+                            text: 'Ir a la segunda imagen',
+                            sceneId: 'scene2'
+                        }
+                    ]
+                },
+                scene2: {
+                    panorama: 'https://pannellum.org/images/cerro-toco-0.jpg',
+                    hotSpots: [
+                        {
+                            pitch: 10,
+                            yaw: -100,
+                            type: 'scene',
+                            text: 'Ir a la tercera imagen',
+                            sceneId: 'scene3'
+                        },
+                        {
+                            pitch: 0,
+                            yaw: 150,
+                            type: 'scene',
+                            text: 'Regresar a la primera imagen',
+                            sceneId: 'scene1'
+                        }
+                    ]
+                },
+                scene3: {
+                    panorama: 'https://pannellum.org/images/bma-0.jpg',
+                    hotSpots: [
+                        {
+                            pitch: 0,
+                            yaw: -150,
+                            type: 'scene',
+                            text: 'Regresar a la segunda imagen',
+                            sceneId: 'scene2'
+                        }
+                    ]
+                }
+            }
+        });
+    </script>
+</body>
+</html>
